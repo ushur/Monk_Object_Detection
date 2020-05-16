@@ -207,10 +207,17 @@ class EfficientDet(nn.Module):
 
         self.num_channels = [64, 88, 112, 160, 224, 288, 384, 384][self.compound_coef]
 
-        self.conv3 = nn.Conv2d(40, self.num_channels, kernel_size=1, stride=1, padding=0)
-        self.conv4 = nn.Conv2d(80, self.num_channels, kernel_size=1, stride=1, padding=0)
-        self.conv5 = nn.Conv2d(192, self.num_channels, kernel_size=1, stride=1, padding=0)
-        self.conv6 = nn.Conv2d(192, self.num_channels, kernel_size=3, stride=2, padding=1)
+#         self.conv3 = nn.Conv2d(40, self.num_channels, kernel_size=1, stride=1, padding=0)
+        self.conv3 = nn.Conv2d(48, self.num_channels, kernel_size=1, stride=1, padding=0)
+    
+#         self.conv4 = nn.Conv2d(80, self.num_channels, kernel_size=1, stride=1, padding=0)
+        self.conv4 = nn.Conv2d(96, self.num_channels, kernel_size=1, stride=1, padding=0)
+    
+#         self.conv5 = nn.Conv2d(192, self.num_channels, kernel_size=1, stride=1, padding=0)
+        self.conv5 = nn.Conv2d(232, self.num_channels, kernel_size=1, stride=1, padding=0)
+    
+#         self.conv6 = nn.Conv2d(192, self.num_channels, kernel_size=3, stride=2, padding=1)
+        self.conv6 = nn.Conv2d(232, self.num_channels, kernel_size=3, stride=2, padding=1)
         self.conv7 = nn.Sequential(nn.ReLU(),
                                    nn.Conv2d(self.num_channels, self.num_channels, kernel_size=3, stride=2, padding=1))
 
